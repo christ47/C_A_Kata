@@ -9,13 +9,16 @@ Given("I am on the Google Homepage") do
   When("I click the citizen advice link from the search") do
     googlePage.clickCitizenAdivceLink
   end
+
+  When("I select the English Site") do
+    citizensAdviceHomepage.selectEnglandSite
+  end
   
   Then("I see the Citizen Advice Homepage") do
     expect(page.should have_css('li', class: 'top-item', count: 10))
   end
   
   When("I search for state pension on the homepage") do
-    citizensAdviceHomepage.selectEnglandSite
     citizensAdviceHomepage.fillSearchBar
     citizensAdviceHomepage.clickSearch
   end
